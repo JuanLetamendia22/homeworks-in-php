@@ -36,10 +36,32 @@ function calcularDifGoles(array $equipos){
     return $equipos;
 }
 /**
- * Ordena los equipos por puntos.
+ * Ordena los equipos por puntos. De una manera ineficiente.
  */
-function ordenarEquipos(){
+function ordenarEquipos(array $equipos){
+    $cantDeEquipos= sizeof($equipos);
+    $indice=0;
+    $subIndice=0;
+    $esOrdenado=false;
+    $arrayAuxiliar=array();
     
+    while(!$esOrdenado) {
+        if($equipos[$indice]['pts']<$equipos[$subIndice]['pts']){
+            $arrayAuxiliar=$equipos[$indice];
+            $equipos[$indice]=$equipos[$subIndice];
+            $equipos[$subIndice]=$arrayAuxiliar;
+        }
+        
+        if($indice==$cantDeEquipos){
+            $esOrdenado=true;
+        }elseif($subIndice==$cantDeEquipos){
+            $indice++;
+            $subIndice=$indice+1;
+        }else{
+            $subIndice++;
+        }
+    }
+    return $equipos;
 }
 /**
  * Pinta la tabla
@@ -72,6 +94,7 @@ function mostrarTabla(array $equipos){
 }
 
 $apertura=calcularPuntos($equipos);
-$apertura=calcularDifGoles($puntos);
-mostrarTabla($puntos);
+$apertura=calcularDifGoles($apertura);
+$apertura=ordenarEquipos($apertura);
+mostrarTabla($apertura);
 ?>
