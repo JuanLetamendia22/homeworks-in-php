@@ -39,27 +39,42 @@ function calcularDifGoles(array $equipos){
  * Ordena los equipos por puntos. De una manera ineficiente.
  */
 function ordenarEquipos(array $equipos){
+
     $cantDeEquipos= sizeof($equipos);
     $indice=0;
     $subIndice=0;
     $esOrdenado=false;
     $arrayAuxiliar=array();
-    
+
     while(!$esOrdenado) {
-        if($equipos[$indice]['pts']<$equipos[$subIndice]['pts']){
-            $arrayAuxiliar=$equipos[$indice];
-            $equipos[$indice]=$equipos[$subIndice];
-            $equipos[$subIndice]=$arrayAuxiliar;
-        }
+
+        $esOrdenado = true; // Asume que el array está ordenado
+
+       while($indice < $cantDeEquipos-1){
         
-        if($indice==$cantDeEquipos){
-            $esOrdenado=true;
-        }elseif($subIndice==$cantDeEquipos){
+        if($equipos[$indice]['pts'] < $equipos[$subIndice]['pts'] ){
+
+            $arrayAuxiliar=$equipos[$indice];
+
+            $equipos[$indice]=$equipos[$subIndice];
+
+            $equipos[$subIndice]=$arrayAuxiliar;
+
+            $esOrdenado = false; // Si se realiza un intercambio, el array no estaba ordenado
+        }
+        if ($subIndice == $cantDeEquipos - 1) {
+
             $indice++;
-            $subIndice=$indice+1;
-        }else{
+            $subIndice = $indice + 1;
+        } else {
             $subIndice++;
         }
+
+    }
+    // Reinicia los índices para otra pasada
+    $indice = 0;
+    $subIndice = 1;
+
     }
     return $equipos;
 }
