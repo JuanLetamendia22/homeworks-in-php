@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <title>Formulario del menu</title>
+</head>
+<body>
+    <header class="encabezado">
+        <h1>Menu de comidas "La dinámica"</h1>
+        <h3>Formulario para agregar comidas</h3>
+    </header>
+    <main class="principal">
+        <div class="form">
+            <form action="" method="post">
+                <div class="selector-categorias">
+                    <label for="categorias">Categoría:</label>
+                    <select id="categorias" name="categorias">
+                        <option value="valor1"> valor 1</option>
+                        <option value="valor2"> valor 2</option>
+                        <option value="valor3"> valor 3</option>
+                    </select>
+                    <!--Agregar dinamismo con php y agregar la posibilidad de agregar o modificar imagen-->
+                </div>
+                <div class="items">
+                    <h3>Item</h3>
+                    <label for="nombre-item1">Nombre</label>
+                    <input id="nombre-item1" type="text">
+                    <label for="descripcion1">Descripción</label>
+                    <input id="descripcion1" type="text">
+                    <label for="precio1">Precio</label>
+                    <input id="precio1" type="number">
+                </div>
+                <div class="items">
+                    <h3>Item</h3>
+                    <label for="nombre-item2">Nombre</label>
+                    <input id="nombre-item2" type="text">
+                    <label for="descripcion2">Descripción</label>
+                    <input id="descripcion2" type="text">
+                    <label for="precio2">Precio</label>
+                    <input id="precio2" type="number">
+                </div>
+                <div class="items">
+                    <h3>Item</h3>
+                    <label for="nombre-item3">Nombre</label>
+                    <input id="nombre-item3" type="text">
+                    <label for="descripcion3">Descripción</label>
+                    <input id="descripcion3" type="text">
+                    <label for="precio3">Precio</label>
+                    <input id="precio3" type="number">
+                </div>
+                <div class="enviar">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
