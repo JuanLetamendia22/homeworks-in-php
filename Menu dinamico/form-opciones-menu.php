@@ -13,45 +13,49 @@
     </header>
     <main class="principal">
         <div class="form">
-            <form action="" method="post">
+            <form action="/pruebas/homeworks-in-php/Menu dinamico/procesar-form.php" method="post" enctype="multipart/form-data">
                 <div class="selector-categorias">
                     <label for="categorias">Categoría:</label>
                     <select id="categorias" name="categorias">
-                        <option value="valor1"> valor 1</option>
-                        <option value="valor2"> valor 2</option>
-                        <option value="valor3"> valor 3</option>
+                        <option value="Hamburguesas"> Hamburguesas</option>
+                        <option value="Panchos"> Panchos</option>
+                        <option value="Coliflor"> Coliflor</option>
                     </select>
                     <!--Agregar dinamismo con php y agregar la posibilidad de agregar o modificar imagen-->
+                </div>
+                <div class="subir-imagen">
+                    <label for="imagen">Subir Imagen de la categoría</label>
+                    <input type="file" name="imagen-categoria" required>
                 </div>
                 <div class="items">
                     <h3>Item</h3>
                     <label for="nombre-item1">Nombre</label>
-                    <input id="nombre-item1" type="text">
+                    <input id="nombre-item1" type="text" name="nombre-item1" required>
                     <label for="descripcion1">Descripción</label>
-                    <input id="descripcion1" type="text">
+                    <input id="descripcion1" type="text" name="descripcion-item1" required>
                     <label for="precio1">Precio</label>
-                    <input id="precio1" type="number">
+                    <input id="precio1" type="number" name="precio-item1" required>
                 </div>
                 <div class="items">
                     <h3>Item</h3>
                     <label for="nombre-item2">Nombre</label>
-                    <input id="nombre-item2" type="text">
+                    <input id="nombre-item2" type="text" name="nombre-item2" required>
                     <label for="descripcion2">Descripción</label>
-                    <input id="descripcion2" type="text">
+                    <input id="descripcion2" type="text "name="descripcion-item2" required>
                     <label for="precio2">Precio</label>
-                    <input id="precio2" type="number">
+                    <input id="precio1" type="number" name="precio-item2" required>
                 </div>
                 <div class="items">
                     <h3>Item</h3>
                     <label for="nombre-item3">Nombre</label>
-                    <input id="nombre-item3" type="text">
+                    <input id="nombre-item3" type="text" name="nombre-item3" required>
                     <label for="descripcion3">Descripción</label>
-                    <input id="descripcion3" type="text">
+                    <input id="descripcion3" type="text" name="descripcion-item3" required>
                     <label for="precio3">Precio</label>
-                    <input id="precio3" type="number">
+                    <input id="precio3" type="number" name="precio-item3" required>
                 </div>
                 <div class="enviar">
-                    <input type="submit">
+                    <input type="submit" value="Enviar Menu">
                 </div>
             </form>
         </div>
