@@ -4,8 +4,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 
     $nombreArchivo= 'imagen-categoria';
     
-    validarArchivoEimagen($nombreArchivo);
-    validarYprocesarDatos();
+    $imagen=validarArchivoEimagen($nombreArchivo);
+    validarYprocesarDatos($imagen);
+
+    echo '<html>
+        <a href="form-opciones-menu.php">
+        <button type="button">Regresar al menu</button>
+        </a>
+    </html>';
+
 }
 
 
@@ -20,8 +27,8 @@ function validarArchivoEimagen($nomArchivo){
 
         if(str_contains($extensionArchivo,'png') || str_contains($extensionArchivo,'jpeg')){
 
-            moverArchivo($nomArchivo);
-        
+            $urlImagen= moverArchivo($nomArchivo);
+            return $urlImagen;
         }else{
 
             echo '<h2>Hubo un error al subir la imagen, verifique si es una imagen jpg o png</h2>';
@@ -50,6 +57,7 @@ function moverArchivo($nomArchivo){
     if(move_uploaded_file($rutaTemporal,$rutaDestino)){
 
         echo '<h2>Subida exitosa</h2>';
+        return $rutaDestino; 
 
     }else{
 
@@ -61,7 +69,7 @@ function moverArchivo($nomArchivo){
 }
 
 
-function validarYprocesarDatos() { 
+function validarYprocesarDatos($imagen) { 
    
    
 
@@ -87,13 +95,15 @@ function validarYprocesarDatos() {
             'NombreItem2' => $nombreItem2,
             'DescripcionItem2' => $descripcionItem2,
             'PrecioItem2' => $precioItem2,
-            'NombreItem2' => $nombreItem3,
+            'NombreItem3' => $nombreItem3,
             'DescripcionItem3' => $descripcionItem3,
-            'PrecioItem3' => $precioItem3
+            'PrecioItem3' => $precioItem3,
+            'UrlImagenCategoria' => $imagen
         );
 
         $menuJson = 'Recursos/Menu.json';
-         
+        $arrayModificado= false;
+        
         if (file_exists($menuJson)) {
 
             $contenidoActual = file_get_contents($menuJson);
@@ -103,22 +113,25 @@ function validarYprocesarDatos() {
             for($i=0; $i < $limiteArray; $i++){
 
                 if($arrayDeDatos[$i]['Categoria'] == $datos['Categoria']){
-                    $arrayDeDatos= array_slice($arrayDeDatos,$i+1,count($arrayDeDatos));
+                    $llaves = array_keys($arrayDeDatos[$i]);
+                    $values = array_values($datos);
+                    $arrayDeDatos[$i] = array_combine($llaves,$values);
+                    $arrayModificado = true; 
                 }
   
               }
         } else {
             $arrayDeDatos = array();
+            
         }
         
-      
+        if(!$arrayModificado){
             $arrayDeDatos[] = $datos;
-        
-       
+        }
 
     
         file_put_contents($menuJson, json_encode($arrayDeDatos, JSON_PRETTY_PRINT));
-      
+        $arrayModificado = false;
     }
 }
 

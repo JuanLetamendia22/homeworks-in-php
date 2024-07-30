@@ -67,3 +67,47 @@ body{
     margin-right: auto;
     text-align: center;
 }
+
+.logo{
+    padding-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    color:#ebcb8b;
+    border-bottom: #88c0d0 solid;
+    text-align: center;
+    padding-bottom: 2%;
+}
+.logo img{
+    width: 10%;
+}
+.menu{
+    
+    display: flex;
+    flex-direction: column;
+    color: #ebcb8b;
+}
+.menu h2{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.menu hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.menu img{
+    width: 10%;
+    border-radius: 50%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.menu p{
+    font-size: 1.2rem;
+    margin-left: 30%;
+    margin-right: 30%;
+}

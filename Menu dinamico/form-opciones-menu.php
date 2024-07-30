@@ -10,16 +10,23 @@
     <header class="encabezado">
         <h1>Menu de comidas "La dinámica"</h1>
         <h3>Formulario para agregar comidas</h3>
+        <?php
+              echo '<html>
+                        <a href="vista-menu.php">
+                            <button type="button">Representar el menu</button>
+                        </a>
+                    </html>';
+        ?>
     </header>
     <main class="principal">
         <div class="form">
-            <form action="/pruebas/homeworks-in-php/Menu dinamico/procesar-form.php" method="post" enctype="multipart/form-data">
+            <form action="\pruebasPhp\ejercicios\homeworks-in-php\Menu dinamico\procesar-form.php" method="post" enctype="multipart/form-data">
                 <div class="selector-categorias">
                     <label for="categorias">Categoría:</label>
                     <select id="categorias" name="categorias">
                         <option value="Hamburguesas"> Hamburguesas</option>
                         <option value="Panchos"> Panchos</option>
-                        <option value="Coliflor"> Coliflor</option>
+                        <option value="Pizza"> Pizza</option>
                     </select>
                     <!--Agregar dinamismo con php y agregar la posibilidad de agregar o modificar imagen-->
                 </div>
